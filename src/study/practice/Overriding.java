@@ -3,18 +3,18 @@ package study.practice;
 public class Overriding {
 	public static void main(String[] args) {
 		// 객체 생성 및 초기화 - 정사각형
-		Square s = new Square();
+		Square2 s = new Square2();
 		s.name = "정사각형";
 		s.length = 5;
 
 		// 객체 생성 및 초기화 - 삼각형
-		Triangle t = new Triangle();
+		Triangle2 t = new Triangle2();
 		t.name = "삼각형";
 		t.base = 5;
 		t.height = 3;
 
 		// 객체 생성 및 초기화 - 원
-		Circle c = new Circle();
+		Circle2 c = new Circle2();
 		c.name = "원";
 		c.radius = 4;
 
@@ -40,7 +40,7 @@ class Shape {
 }
 
 // 정사각형
-class Square extends Shape {
+class Square2 extends Shape {
 	int length; // 한 변의 길이
 
 	/* 1. 정사각형 넓이를 구하도록 area()를 재정의하세요. */
@@ -50,7 +50,7 @@ class Square extends Shape {
 }
 
 // 삼각형
-class Triangle extends Shape {
+class Triangle2 extends Shape {
 	int base; // 밑변
 	int height; // 높이
 
@@ -61,7 +61,7 @@ class Triangle extends Shape {
 }
 
 // 원
-class Circle extends Shape {
+class Circle2 extends Shape {
 	int radius; // 반지름
 
 	/* 3. 원의 넓이를 구하도록 area()를 재정의하세요. */

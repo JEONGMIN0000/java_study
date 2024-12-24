@@ -19,7 +19,20 @@ public class ExMain {
 		Vehicle v2 = takeBus(); //return Bus
 		
 		Vehicle b3 = takeBus2();
-
+		
+		//------------------------
+		Taxi t5 = new Taxi();
+		Vehicle v5 = t5;
+		v5.run();
+		t5.bsOn();
+		
+		Taxi t6 = (Taxi)v5;
+		t6.bsOn();
+		
+		Vehicle  v6 = new Vehicle();
+		if( v6 instanceof Taxi) {
+			Taxi t7 = (Taxi)v6; 
+		}
 	}
 	
 	public static Taxi takeTaxi() {

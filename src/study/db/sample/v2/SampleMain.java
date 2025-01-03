@@ -12,18 +12,6 @@ import java.util.List;
 public class SampleMain {
 
 	public static void main(String[] args) {
-//		selectDept();
-
-//		findProduct();
-
-//		selectDept2();
-//		findDeptByDeptno(40);
-//		
-//		findDeptByDeptno(20);
-		
-//		findDeptByDname("RESEARCH");
-		
-//		findDeptByDname("OPERATIONS");
 		
 		DeptDAO deptDAO = new DeptDAO();
 		

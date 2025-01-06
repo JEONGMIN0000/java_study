@@ -14,6 +14,45 @@ public class DeptDAO {
 	PreparedStatement psmt = null; // 연결하여 sql 명령을 실행해주는 객체
 	ResultSet rs = null;    // sql 실행 select 결과 저장하는 객체
 	
+	//83  이름3  지역3
+	//83  재무팀  부산
+//	public int modifyDept(int deptno, String dname, String loc) {
+	public int modifyDept(Dept dept) {
+		
+		conn = DBConnectionManager.connectDB();
+		
+		int result = 0;
+
+		//쿼리 준비  
+		String sqlQuery = " update dept "
+						+ " set dname = ? , loc = ? "
+						+ " where deptno = ? ";
+		
+		try {
+			//쿼리 실행 후 데이터 후속 처리
+
+			psmt = conn.prepareStatement(sqlQuery);
+			
+			//파라미터 셋팅
+			psmt.setString(1, dept.getDname());
+			psmt.setString(2, dept.getLoc());
+			psmt.setInt(3, dept.getDeptno());
+			
+			//select -> executeQuery
+			//insert, update, delete -> executeUpdate
+			
+			result = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnectionManager.disconnectDB(conn, psmt, rs);
+		}
+		
+		
+		return result;
+	}
+	
 	//insert update delete -> 실행 후 적용된 행의 갯수 return 
 //	public int saveDept(int deptno, String dname, String loc) {
 	public int saveDept(Dept dept) {

@@ -14,6 +14,13 @@ public class ArplInfo {
 		);
 	 */
 	
+	/*
+	 CREATE SEQUENCE arplinfo_pk_seq
+		start with 1
+		INCREMENT by 1
+		NOCYCLE;
+	 */
+	
 	
 	int arplNo; //PK 역할 순번
 	

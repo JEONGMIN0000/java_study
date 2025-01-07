@@ -110,6 +110,7 @@ public class SampleMain {
 		List<ProfessorDTO> pList= professorDAO.findProfessorListByDeptno(101);
 		
 		ProfessorDTO p = pList.get(0);
+		
 		System.out.println(p.getHiredate());
 		
 		//System.out.println(ConvertDateUtil.convertlocalDateTimeToString(p.getHiredate()));

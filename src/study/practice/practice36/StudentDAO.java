@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import study.db.sample.v2.Dept;
 import study.practice.practice36.DBConnectionManager;
 
 
@@ -124,6 +125,57 @@ public class StudentDAO {
 		}
 		
 		return studentList;
+	}
+	
+	public int saveStudent(StudentDTO studentDTO) {
+		
+		conn = DBConnectionManager.connectDB();
+		
+		int result = 0;
+
+		//쿼리 준비  
+		String sqlQuery = "insert into student values ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) ";
+		//String sqlQuery = " insert into student values (?, ?, ?, ?, ?,  TO_DATE(?, 'yyyy-MM-dd') , ?, ?, ?, ?, ?, ?) ";
+		
+
+		try {
+			//쿼리 실행 후 데이터 후속 처리
+
+			psmt = conn.prepareStatement(sqlQuery);
+			
+			//파라미터 셋팅
+			psmt.setInt(1, studentDTO.getStudno());
+			psmt.setString(2, studentDTO.getName());
+			psmt.setString(3, studentDTO.getId());
+			psmt.setInt(4, studentDTO.getGrade());
+			psmt.setString(5, studentDTO.getJumin());
+			psmt.setString(6, studentDTO.getBirthday());
+			
+			//psmt.setDate(6, Date.valueOf(student.getBirthday()));
+			//								String , LocalDate
+			
+			//psmt.setTimestamp(6, ConvertDateUtil.convertLocalDateTimeToTimestamp(student.getBirthday()));
+			// 								LocalDateTime
+			
+			
+			psmt.setString(7, studentDTO.getTel());
+			psmt.setInt(8, studentDTO.getHeight());
+			psmt.setInt(9, studentDTO.getWeight());
+			psmt.setInt(10, studentDTO.getDeptno1());
+			psmt.setInt(11, studentDTO.getDeptno2());
+			psmt.setInt(12, studentDTO.getProfno());
+		
+			
+			result = psmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConnectionManager.disconnectDB(conn, psmt, rs);
+		}
+		
+		
+		return result;
 	}
 	
 	
